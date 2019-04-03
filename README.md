@@ -1,6 +1,6 @@
-# Node.js & Passport Login
+# Web An toàn
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
+Mới có đăng nhập dùng Node.js, Express, Passport, Mongoose, EJS...
 
 ### Version: 2.0.0
 
@@ -16,6 +16,7 @@ $ npm start
 $ npm run dev
 
 # Visit http://localhost:5000
+# Chạy được luôn không cần cấu hình gì cả
 ```
 
 ### MongoDB
