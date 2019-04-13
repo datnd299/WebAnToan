@@ -6,12 +6,12 @@ var logger 		= require('../logger');
 
 // Connect to the database
 // construct the database URI and encode username and password.
-var dbURI = "mongodb://" + 
-			encodeURIComponent(config.db.username) + ":" + 
-			encodeURIComponent(config.db.password) + "@" + 
-			config.db.host + ":" + 
-			config.db.port + "/" + 
-			config.db.name;
+// var dbURI = "mongodb://" + 
+// 			encodeURIComponent(config.db.username) + ":" + 
+// 			encodeURIComponent(config.db.password) + "@" + 
+// 			config.db.host + ":" + 
+// 			config.db.port + "/" + 
+// 			config.db.name;
 			var dbPassword = 'mongodb+srv://datnd2:29091997q@cluster0-6qp73.mongodb.net/ChatIO?retryWrites=true'
 Mongoose.connect(dbPassword, { useNewUrlParser: true });
 
