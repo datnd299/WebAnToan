@@ -6,13 +6,12 @@ var app = {
 
     var socket = io('/rooms', { transports: ['websocket'] });
 
-    // When socket connects, get a list of chatrooms
+
     socket.on('connect', function () {
 
-      // Update rooms list upon emitting updateRoomsList event
+
       socket.on('updateRoomsList', function(room) {
 
-        // Display an error message upon a user error(i.e. creating a room with an existing title)
         $('.room-create p.message').remove();
         if(room.error != null){
           $('.room-create').append(`<p class="message error">${room.error}</p>`);
@@ -21,7 +20,7 @@ var app = {
         }
       });
 
-      // Whenever the user hits the create button, emit createRoom event.
+
       $('.room-create button').on('click', function(e) {
         var inputEle = $("input[name='title']");
         var roomTitle = inputEle.val().trim();
@@ -38,12 +37,12 @@ var app = {
     
     var socket = io('/chatroom', { transports: ['websocket'] });
 
-      // When socket connects, join the current chatroom
+
       socket.on('connect', function () {
 
         socket.emit('join', roomId);
 
-        // Update users list upon emitting updateUsersList event
+
         socket.on('updateUsersList', function(users, clear) {
 
           $('.container p.message').remove();
@@ -54,7 +53,6 @@ var app = {
           }
         });
 
-        // Whenever the user hits the save button, emit newMessage event.
         $(".chat-message button").on('click', function(e) {
 
           var textareaEle = $("textarea[name='message']");
@@ -72,13 +70,13 @@ var app = {
           }
         });
 
-        // Whenever a user leaves the current room, remove the user from users list
+
         socket.on('removeUser', function(userId) {
           $('li#user-' + userId).remove();
           app.helpers.updateNumOfUsers();
         });
 
-        // Append a new message 
+
         socket.on('addMessage', function(message) {
           app.helpers.addMessage(message);
         });
@@ -103,12 +101,13 @@ var app = {
         $('.room-list ul').prepend(html);
       }else{
         $('.room-list ul').html('').html(html);
+        console.log('a');
       }
       
       this.updateNumOfRooms();
     },
 
-    // Update users list
+
     updateUsersList: function(users, clear){
         if(users.constructor !== Array){
           users = [users];
@@ -136,7 +135,7 @@ var app = {
         this.updateNumOfUsers();
     },
 
-    // Adding a new message to chat history
+
     addMessage: function(message){
       message.date      = (new Date(message.date)).toLocaleString();
       message.username  = this.encodeHTML(message.username);
@@ -151,19 +150,16 @@ var app = {
                   </li>`;
       $(html).hide().appendTo('.chat-history ul').slideDown(200);
 
-      // Keep scroll bar down
+
       $(".chat-history").animate({ scrollTop: $('.chat-history')[0].scrollHeight}, 1000);
     },
 
-    // Update number of rooms
-    // This method MUST be called after adding a new room
+
     updateNumOfRooms: function(){
       var num = $('.room-list ul li').length;
       $('.room-num-rooms').text(num +  " Room(s)");
     },
 
-    // Update number of online users in the current room
-    // This method MUST be called after adding, or removing list element(s)
     updateNumOfUsers: function(){
       var num = $('.users-list ul li').length;
       $('.chat-num-users').text(num +  " User(s)");

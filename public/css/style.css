@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #C5DDEB;
+  background: linear-gradient(to right, #d3cce3, #e9e4f0);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;   
@@ -120,12 +120,12 @@ body {
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #86BB71;
+  border-bottom-color: #16a085;
   border-width: 10px;
   margin-left: -10px;
 }
 .chat .chat-history .my-message {
-  background: #86BB71;
+  background: #16a085;
 }
 .chat .chat-message, .room .room-create {
   padding: 20px;
@@ -144,7 +144,7 @@ body {
 }
 
 .online {
-  color: #86BB71;
+  color: #2ecc71;
 }
 
 .offline {
@@ -194,6 +194,7 @@ body {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
+  border-radius: 5px;
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -205,10 +206,11 @@ body {
   font-size: 14px;
 }
 .form button {
+  border-radius: 5px;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #86BB71;
+  background: #8e44ad;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -219,7 +221,7 @@ body {
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #89c771;
+  background: #9b59b6;
 }
 .form .message, .room-create .message {
   margin: 15px 0 0;
@@ -227,7 +229,7 @@ body {
   font-size: 12px;
 }
 .form .message a {
-  color: #86BB71;
+  color: #8e44ad;
   text-decoration: none;
 }
 .form .register-form {
@@ -259,7 +261,7 @@ ul {
   text-align: center;
 }
 .room .room-list .room-item {
-  background: #86BB71;
+  background: #2980b9;
 }
 .room .room-list a {
   text-decoration: none;
@@ -294,7 +296,7 @@ ul {
   float: right;
   text-transform: uppercase;
   outline: 0;
-  background: #86BB71;
+  background: #8e44ad;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -304,10 +306,10 @@ ul {
   cursor: pointer;
 }
 button:hover, button:active, button:focus {
-  background: #89c771;
+  background: #9b59b6;
 }
 a.rooms-btn:hover, a.rooms-btn:active, a.rooms-btn:focus {
-  background: #89c771;
+  background: #9b59b6;
 }
 a.logout-btn{
   background-color: rgb(226, 98, 92);
@@ -341,7 +343,7 @@ a.logout-btn:hover, a.logout-btn:active, a.logout-btn:focus {
   color: red;
 }
 .message.success {
-  color: #86BB71;
+  color: #8e44ad;
 }
 .container {
   overflow: hidden;

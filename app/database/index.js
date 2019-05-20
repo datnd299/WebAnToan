@@ -4,8 +4,6 @@ var config 		= require('../config');
 var Mongoose 	= require('mongoose');
 var logger 		= require('../logger');
 
-// Connect to the database
-// construct the database URI and encode username and password.
 var dbURI = "mongodb://" + 
 			encodeURIComponent(config.db.username) + ":" + 
 			encodeURIComponent(config.db.password) + "@" + 
@@ -15,14 +13,12 @@ var dbURI = "mongodb://" +
 			//var dbURI = 'mongodb+srv://datnd2:29091997q@cluster0-6qp73.mongodb.net/ChatIO?retryWrites=true'
 Mongoose.connect(dbURI, { useNewUrlParser: true });
 
-// Throw an error if the connection fails
+
 Mongoose.connection.on('error', function(err) {
 	if(err) throw err;
 });
 
-// mpromise (mongoose's default promise library) is deprecated, 
-// Plug-in your own promise library instead.
-// Use native promises
+
 Mongoose.Promise = global.Promise;
 
 module.exports = { Mongoose, 
